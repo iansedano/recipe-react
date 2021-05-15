@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./style.css"
 
 const root = document.getElementById("root");
 
 
 const mainContainer = React.createElement("div", null, 
-    React.createElement("h1", null, "Hello World")
+    /*SECTION*/React.createElement("div", {className: "section"}, 
+        React.createElement("h2", null, "Welcome!"),
+        React.createElement("h3", null, "Looks like you are a Coder!")
+    )
+    
 )
 
 console.log(mainContainer)
