@@ -18,8 +18,8 @@ const mainContainer = React.createElement("div", null,
     ),
     React.createElement("div", {className: "section"},
         React.createElement("h2", null, "Some info about a Country"),
-        details.map((detail) => {
-            return React.createElement("h3", null, `${detail.name} - ${detail.value}`)
+        details.map((detail, i) => {
+            return React.createElement("h3", {key: i}, `${detail.name} - ${detail.value}`)
         })
     )
     
