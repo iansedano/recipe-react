@@ -2,29 +2,24 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./style.css"
 
-const root = document.getElementById("root");
+const users = require('./users.json')
 
-const details = [
-    {name: "name", value: "Nepal"},
-    {name: "population", value: "28,095,714"},
-    {name: "area", value: "147,516 km2"},
-    {name: "main religion", value: "Hinduism"},
-]
+
 
 const mainContainer = React.createElement("div", null, 
-    React.createElement("div", {className: "section"}, 
-        React.createElement("h2", null, "Welcome!"),
-        React.createElement("h3", null, "Looks like you are a Coder!")
-    ),
-    React.createElement("div", {className: "section"},
-        React.createElement("h2", null, "Some info about a Country"),
-        details.map((detail, i) => {
-            return React.createElement("h3", {key: i}, `${detail.name} - ${detail.value}`)
-        })
-    )
-    
+    users.map((user, i) => {
+        return React.createElement(
+            "section",
+            {className: "section", key: i},
+            React.createElement("h2", null, `${user.first_name} ${user.last_name}`),
+            React.createElement("img", {src: user.avatar, height: "100px", width: "100px"}, null),
+            React.createElement("h3", null, `"${user.preferences.fav_phrases.at_bar}"`)
+        )
+    })
 )
 
-console.log(mainContainer)
 
+
+
+const root = document.getElementById("root");
 ReactDOM.render(mainContainer, root);
